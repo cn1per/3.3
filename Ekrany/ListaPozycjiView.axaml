@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="katalog.Ekrany.ListaPozycjiView">
+    <Grid RowDefinitions="Auto,Auto,*"
+          Margin="24"
+          RowSpacing="16">
+        <Grid ColumnDefinitions="*,Auto">
+            <TextBlock Text="Katalog"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center" />
+            <Button Grid.Column="1"
+                    Content="Dodaj pozycję"
+                    Padding="16,8"
+                    Click="AddButton_Click" />
+
+            <Button Click="OnCountClick">Policz</Button>
+<TextBlock Name="CountText" />
+        </Grid>
+
+        <TextBlock x:Name="Komunikat"
+                   Grid.Row="1"
+                   IsVisible="False"
+                   TextWrapping="Wrap" />
+
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl ItemsSource="{Binding Pozycje}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="16"
+                                Margin="0,0,0,10"
+                                CornerRadius="8"
+                                BorderThickness="1"
+                                BorderBrush="#808080">
+                            <Grid ColumnDefinitions="*,Auto"
+                                  RowDefinitions="Auto,Auto">
+                                <TextBlock Text="{Binding Tytul}"
+                                           FontSize="18"
+                                           FontWeight="SemiBold" />
+                                <Button Grid.Column="1"
+                                        Grid.RowSpan="2"
+                                        Content="Szczegóły"
+                                        VerticalAlignment="Center"
+                                        Padding="12,6"
+                                        Click="DetailsButton_Click" />
+                                <StackPanel Grid.Row="1"
+                                            Orientation="Horizontal"
+                                            Spacing="20"
+                                            Margin="0,6,0,0">
+                                    <TextBlock Text="{Binding Rok, StringFormat='Rok: {0}'}" />
+                                    <TextBlock Text="{Binding OcenaTekstowa, StringFormat='Ocena: {0}/10'}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

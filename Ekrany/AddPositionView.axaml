@@ -1,0 +1,44 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="katalog.Ekrany.AddPositionView">
+    <StackPanel Margin="24"
+                Spacing="16"
+                MaxWidth="480"
+                HorizontalAlignment="Center">
+        <Button Content="Powrót do listy"
+                HorizontalAlignment="Left"
+                Padding="12,6"
+                Click="BackButton_Click" />
+
+        <TextBlock Text="Dodaj nową pozycję"
+                   FontSize="28"
+                   FontWeight="Bold" />
+
+        <StackPanel Spacing="6">
+            <TextBlock Text="Tytuł" />
+            <TextBox x:Name="PoleTytul"
+                     Watermark="Wpisz tytuł" />
+        </StackPanel>
+
+        <StackPanel Spacing="6">
+            <TextBlock Text="Rok" />
+            <TextBox x:Name="PoleRok"
+                     Watermark="Wpisz rok" />
+        </StackPanel>
+
+        <StackPanel Spacing="6">
+            <TextBlock Text="Ocena (0–10)" />
+            <TextBox x:Name="PoleOcena"
+                     Watermark="Wpisz ocenę" />
+        </StackPanel>
+
+        <TextBlock x:Name="Komunikat"
+                   IsVisible="False"
+                   TextWrapping="Wrap" />
+
+        <Button Content="Zapisz"
+                HorizontalAlignment="Left"
+                Padding="16,8"
+                Click="SaveButton_Click" />
+    </StackPanel>
+</UserControl>

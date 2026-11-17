@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="katalog.Ekrany.SzczegolyPozycjiView">
+    <StackPanel Margin="24"
+                Spacing="20">
+        <Button Content="Powrót do listy"
+                HorizontalAlignment="Left"
+                Padding="12,6"
+                Click="BackButton_Click" />
+
+        <StackPanel Spacing="16">
+            <TextBlock Text="Szczegóły pozycji"
+                       FontSize="28"
+                       FontWeight="Bold" />
+            <TextBlock Text="{Binding Tytul}"
+                       FontSize="22"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap" />
+            <TextBlock Text="{Binding Rok, StringFormat='Rok: {0}'}"
+                       FontSize="16" />
+            <TextBlock Text="{Binding OcenaTekstowa, StringFormat='Ocena: {0}/10'}"
+                       FontSize="16" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>
